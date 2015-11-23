@@ -2,6 +2,7 @@ require 'spec_helper'
 require 'rails_helper'
 
 feature "the signup process" do
+  let(:user) { User.create(username: "test", password: "biscuits") }
   scenario "has a new user page" do
     visit new_user_url
     expect(page).to have_content "New User"
@@ -29,7 +30,6 @@ feature "the signup process" do
   feature "logging in" do
     before(:each) do
       visit new_session_url
-      user = User.create(username: "test", password: "biscuits")
       fill_in 'username', with: user.username
       fill_in 'password', with: user.password
       click_on "Log In"
@@ -52,7 +52,6 @@ feature "the signup process" do
 
     scenario "doesn't show username on the homepage after logout" do
         visit new_session_url
-        user = User.create(username: "test", password: "biscuits")
         fill_in 'username', with: user.username
         fill_in 'password', with: user.password
         click_on "Log In"

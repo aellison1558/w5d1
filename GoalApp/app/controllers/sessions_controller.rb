@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_credentials(username, password)
+    return if user.nil?
     sign_in(user)
     redirect_to users_url
   end

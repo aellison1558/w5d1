@@ -1,0 +1,14 @@
+<h1>Add Goal</h1>
+<%= render 'shared/errors' %>
+
+<form action='<%= goals_url %>' method="post">
+  <input type="hidden" name="authenticity_token" value='<%= form_authenticity_token %>'>
+
+  <label for="body">Body:</label>
+  <textarea name="goal[body]" id="body" rows="8" cols="40"><%= @goal.body %></textarea>
+
+  <label for="private">Private Goal?</label>
+  <input type="checkbox" name="goal[private]" value="<%= true %>">
+
+  <input type="submit" value="Add Goal">
+</form>

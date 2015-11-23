@@ -1,0 +1,4 @@
+<h1><%= @goal.body %></h1>
+<%= "Private" if @goal.private %>
+<br>
+<%= link_to "All Goals", user_goals_url(@goal.user_id) %>

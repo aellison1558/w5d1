@@ -1,7 +1,10 @@
 class GoalsController < ApplicationController
+  before_filter :require_login
   def create
-    @goal = Goal.new(goals_params)
-    @goal.user_id = current_user.id
+    # @goal = Goal.new(goals_params)
+    # @goal.user_id = current_user.id
+
+    @goal = current_user.goals.new(goals_params)
 
     if @goal.save
       redirect_to user_goals_url(@goal.user_id)
@@ -41,7 +44,8 @@ class GoalsController < ApplicationController
   end
 
   def index
-    @goals = Goal.all
+    @user = User.find(params[:user_id])
+    @goals = @user.goals
   end
 
   private
