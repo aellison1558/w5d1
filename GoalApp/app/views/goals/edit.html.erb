@@ -5,7 +5,11 @@
   <label for="goal_body">Body:</label>
   <textarea name="goal[body]" value="" id="goal_body"><%= @goal.body %></textarea>
   <label for="goal_private">Private?</label>
-  <input type="radio" name="goal[private]" value="true" id="goal_private" <%= "checked" if @goal.private %>>
-  <input type="radio" name="goal[private]" value="false" id="goal_private" <%= "checked" unless @goal.private %>>
+  Y<input type="radio" name="goal[private]" value="true" id="goal_private" <%= "checked" if @goal.private %>>
+  N<input type="radio" name="goal[private]" value="false" id="goal_private" <%= "checked" unless @goal.private %>>
+
+  <label for="goal_completed">Completed?</label>
+  Y<input type="radio" name="goal[completed]" value="true" id="goal_completed" <%= "checked" if @goal.completed %>>
+  N<input type="radio" name="goal[completed]" value="false" id="goal_completed" <%= "checked" unless @goal.completed %>>
   <input type="submit" value="Update Goal!">
 </form>

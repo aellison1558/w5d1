@@ -1,4 +1,13 @@
 <h1><%= @goal.body %></h1>
 <%= "Private" if @goal.private %>
 <br>
+<%= "Complete" if @goal.completed %>
+<br>
+<%= render "comments/form" %>
+<ul>
+  <% @goal.comments.each do |comment| %>
+    <li><%= comment.body %></li>
+    <%= button_to "Delete Comment", comment_url(comment), method: :delete %>
+  <% end %>
+</ul>
 <%= link_to "All Goals", user_goals_url(@goal.user_id) %>
