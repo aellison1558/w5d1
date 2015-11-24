@@ -12,7 +12,7 @@ class UserCommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
+    @comment = UserComment.find(params[:id])
     @comment.destroy
     redirect_to user_url(@comment.user_id)
   end
