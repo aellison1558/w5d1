@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
 
   has_many :goals
   has_many :comments
+  has_many :user_comments
+  has_many :authored_user_comments,
+    class_name: "UserComment",
+    foreign_key: :author_id
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

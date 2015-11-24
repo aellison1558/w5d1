@@ -1,0 +1,8 @@
+<h2>Add Comment</h2>
+<form action="<%= user_comments_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value='<%= form_authenticity_token %>'>
+  <input type="hidden" name="user_comment[user_id]" value="<%= params[:id] %>">
+  <label for="user_comment_body">Comment body</label>
+  <input type="string" name="user_comment[body]" id="user_comment_body">
+  <input type="submit" value="Add Comment">
+</form>
